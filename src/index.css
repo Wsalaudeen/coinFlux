@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@400;500&display=swap");
+
+/*  reset csss*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Quicksans" sans-serif;
+}
+
+body {
+  font-size: calc(0.75em + 1vmin);
+  font-family: "Quicksand";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  color: Black;
+  background: linear-gradient(#f7f7f7, #e5e5e5, #dedede);
+}
