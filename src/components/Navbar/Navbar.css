@@ -54,7 +54,8 @@
   border: none;
   cursor: pointer;
 }
-h1 {
+
+.logo {
   margin: 0;
   font-size: 1.5em;
   text-transform: uppercase;
@@ -73,4 +74,26 @@ h1 {
   clip: rect(0, 0, 0, 0);
   border: 0;
   white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding: 20px 8%;
+  }
+  .navbar button {
+    gap: 8px;
+    padding: 8px 18px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 768px) {
+  .navbar {
+    padding: 20px 5%;
+  }
+  .navbar ul {
+    display: none;
+  }
+  .navbar button img {
+    width: 12px;
+  }
 }

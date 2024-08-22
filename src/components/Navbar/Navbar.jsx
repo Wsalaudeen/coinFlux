@@ -1,30 +1,51 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Navbar.css";
+import { CoinContext } from "../../context/Coincontext";
+import { Link } from "react-router-dom";
 
 function Navbar() {
+  const { setCurrency } = useContext(CoinContext);
+  const currencyHandler = (e) => {
+    switch (e.target.value) {
+      case "usd": {
+        setCurrency({ name: "usd", symbol: "$" });
+        break;
+      }
+      case "eur": {
+        setCurrency({ name: "eur", symbol: "£" });
+        break;
+      }
+      case "ngn": {
+        setCurrency({ name: "ngn", symbol: "₦" });
+        break;
+      }
+      default: {
+        setCurrency({ name: "usd", symbol: "$" });
+        break;
+      }
+    }
+  };
   return (
     <nav className="navbar">
-      <h1>CoinFlux</h1>
+      <Link to={"/"}>
+        <h1 className="logo">CoinFlux</h1>{" "}
+      </Link>
+
       <ul>
-        <li>
-          <a href="/home">Home</a>
-        </li>
-        <li>
-          <a href="/features">Features</a>
-        </li>
-        <li>
-          <a href="/pricing">Pricing</a>
-        </li>
-        <li>
-          <a href="/blog">Blog</a>
-        </li>
+        <Link to={"/"}>
+          <li>Home</li>
+        </Link>
+
+        <li>Features</li>
+        <li>Pricing</li>
+        <li>Blog</li>
       </ul>
       <div className="nav-right">
         {/* for screen readers */}
         <label htmlFor="currency-select" className="visually-hidden">
           Select Currency
         </label>
-        <select id="currency-select">
+        <select id="currency-select" onChange={currencyHandler}>
           <option value="usd">USD</option>
           <option value="eur">EUR</option>
           <option value="ngn">NGN</option>
